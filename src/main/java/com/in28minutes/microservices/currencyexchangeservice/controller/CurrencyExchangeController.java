@@ -22,7 +22,7 @@ public class CurrencyExchangeController {
     public CurrencyValue getCurrencyValue(@PathVariable String from, @PathVariable String to){
         Optional<CurrencyValue> currencyValueOp = currencyRepository.findByFromAndTo(from.toUpperCase(), to.toUpperCase());
         CurrencyValue currencyValue = currencyValueOp.get();
-        currencyValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+        currencyValue.setPort(Integer.parseInt(environment.getProperty("server.port")));
         return currencyValue;
     }
 }
